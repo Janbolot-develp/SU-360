@@ -1,3 +1,5 @@
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:400,700');
+
 * {
     margin: 0;
     padding: 0;
@@ -7,6 +9,7 @@
 body {
     color: #000;
     font: 500 16px/28px 'Urbanist', Arial, Helvetica, sans-serif;
+    font-family: 'Poppins', sans-serif;;
     background-color: rgb(255, 255, 255);
 }
 
@@ -25,6 +28,7 @@ img {
     max-height: 100%;
     margin-right: 16px;
 }
+
 
 .container {
     max-width: 1340px;
@@ -48,30 +52,30 @@ img {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #f8f8f8;
+    background-color: #f8f8f8; 
     z-index: 9999; /* Чтобы контейнер был поверх всего */
     overflow: hidden; /* Запрет прокрутки */
 }
 
 
 .transition-text {
-    font-size: 28px;
+    font-size: 24px;
+    font: 700 36px 'Poppins';
     opacity: 1;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    white-space: nowrap;
-    color: #0790ff;
+    white-space: nowrap; /* Буквы не переносятся на следующую строку */
+    color: #264BC0;
 }
 
 .transition-text span {
     opacity: 0; /* Начальная прозрачность букв */
-    animation: fadeIn 0.4s forwards; /* Анимация появления букв */
+    animation: fadeIn 0.5s forwards; /* Анимация появления букв */
     animation-delay: calc(0.1s * var(--index)); /* Задержка для каждой буквы */
-    margin-right: 16px; /* Отступ между буквами */
+    margin-right: 31px;
 }
-
 
 @keyframes fadeIn {
     from {
@@ -83,6 +87,7 @@ img {
 }
 
 /* Добавляем анимацию для появления и исчезновения текста */
+
 .transition-container.hide .transition-text {
     opacity: 0;
 }
@@ -92,41 +97,46 @@ img {
     transition: opacity 0.5s ease-in-out; /* Анимация появления основного контента */
 }
 
+
 /* Шапка сайта */
 
 #header-section {
     padding: 32px 0;
     background-color: rgb(255, 255, 255);
-}
-
-.header,
-.nav-main,
-.nav-main__list {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    /* padding: 0 1em; */
+    box-shadow: 0px 3px 10px 0px #bdc3c766;
 }
 
-/* .nav-main {
-    flex-grow: 1;
-} */
-
-.nav-main__list {
-    gap: 48px;
-    font: 400 18px 'Inter', Arial, Helvetica, sans-serif;
+header .logo {
+    display: flex;
+    align-items: center;
+    color: #34495e;
+    font-size: 30px;
+    text-transform: uppercase;
+    font-family: "Open Sans", sans-serif;
+    cursor: pointer;
+    text-shadow: 2px 2px 3px #bdc3c7;
 }
 
-.nav-main__link_selected {
-    font-size: 24px;
+header .logo i {
+    margin-right: 10px;
 }
 
-.nav-main__link:hover {
-    color: #C99E71;
+/* Mobile Header */
+
+@media screen and (max-width: 500px) {
+    header .logo p {
+        font-size: 20px;
+    }
 }
 
-.header__logo {
-    width: 84px;
-    height: 84px;
+@media screen and (max-width: 400px) {
+    header .logo p {
+        display: none;
+    }
 }
 
 /* Середина сайта тоесть 3D тур 360 */
@@ -198,14 +208,13 @@ img {
 }
 
 /* Нога сайта */
-
+/* 
 footer {
     position: fixed;
     bottom: 0;
-}
+} */
 
-@media (max-height:800px) 
-{
+@media (max-height:800px) {
     footer {
         position: static;
     }
@@ -217,7 +226,7 @@ footer {
 .footer-distributed {
     background-color: #2d2a30;
     box-sizing: border-box;
-    widows: 100%;
+    width: 100%;
     text-align: left;
     font: bold 16px sans-serif;
     padding: 50px 50px 60px 50px;
@@ -229,19 +238,44 @@ footer {
     vertical-align: top;
 }
 
+/* Footer left */
+
 .footer-distributed .footer-left {
     width: 30%;
 }
 
 .footer-distributed h3 {
-    color: #ffff;
-    font: normal 36px 'cookie', cursive;
+    color: #ffffff;
+    font: normal 36px 'Poppins', sans-serif;
     margin: 0;
 }
 
 .footer-distributed h3 span {
-    color: #e0ac1c;
+    color: #264BC0;
 }
+
+/* Footer links */
+
+.footer-distributed .footer-links {
+    color: #ffffff;
+    margin: 20px 0 12px;
+}
+
+.footer-distributed .footer-links a {
+    display: inline-block;
+    line-height: 1.8;
+    text-decoration: none;
+    color: inherit;
+}
+
+.footer-distributed .footer-company-name {
+    color: #8f9296;
+    font-size: 14px;
+    font-weight: normal;
+    margin: 0;
+}
+
+/* Footer Center */
 
 .footer-distributed .footer-center {
     width: 35%;
@@ -249,7 +283,7 @@ footer {
 
 .footer-distributed .footer-center i {
     background-color: #33383b;
-    color: #ffff;
+    color: #ffffff;
     font-size: 25px;
     width: 38px;
     height: 38px;
@@ -262,12 +296,12 @@ footer {
 
 .footer-distributed .footer-center i.fa-envelope {
     font-size: 17px;
-    line-height: 28px;
+    line-height: 38px;
 }
 
 .footer-distributed .footer-center p {
     display: inline-block;
-    color: #ffff;
+    color: #ffffff;
     vertical-align: middle;
     margin: 0;
 }
@@ -282,7 +316,10 @@ footer {
 .footer-distributed .footer-center p a {
     color: #e0ac1c;
     text-decoration: none;
+    ;
 }
+
+/* Footer Right */
 
 .footer-distributed .footer-right {
     width: 30%;
@@ -298,7 +335,7 @@ footer {
 
 .footer-distributed .footer-company-about span {
     display: block;
-    color: #ffff;
+    color: #ffffff;
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 20px;
@@ -308,7 +345,6 @@ footer {
     margin-top: 25px;
 }
 
-
 .footer-distributed .footer-icons a {
     display: inline-block;
     width: 35px;
@@ -317,7 +353,7 @@ footer {
     background-color: #33383b;
     border-radius: 2px;
     font-size: 20px;
-    color: #ffff;
+    color: #ffffff;
     text-align: center;
     line-height: 35px;
     margin-right: 3px;
@@ -325,11 +361,15 @@ footer {
 }
 
 .footer-distributed .footer-icons a:hover {
-    background-color: #3f71ea;
+    background-color: #3F71EA;
 }
 
-@media(max-width: 880px) {
-    .footer-distributed .footer-center .footer-distributed .footer-right {
+.footer-links a:hover {
+    color: #3F71EA;
+}
+
+@media (max-width: 880px) {
+    .footer-distributed .footer-left, .footer-distributed .footer-center, .footer-distributed .footer-right {
         display: block;
         width: 100%;
         margin-bottom: 40px;
@@ -338,7 +378,7 @@ footer {
     .footer-distributed .footer-center i {
         margin-left: 0;
     }
-}
+} 
 
 .end-text {
     background-color: #edfff1;
